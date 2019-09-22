@@ -83,7 +83,7 @@ export default class Sheep extends cc.Component {
     jump(){
         if(this.energy>=this.jumpEnergyCost){
             this.energy -= this.jumpEnergyCost;
-            this.state = State.Jump;
+            this.state = SheepState.Jump;
         }
     }
 }
