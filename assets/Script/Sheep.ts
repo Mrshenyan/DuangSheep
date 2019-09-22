@@ -84,7 +84,18 @@ export default class Sheep extends cc.Component {
         if(this.energy>=this.jumpEnergyCost){
             this.energy -= this.jumpEnergyCost;
             this.state = SheepState.Jump;
+            this.currentSpeed = this.initJumpSpeed;
+            this.spawnDust("DustUp");
+            cc.audioEngine.playEffect(this.jumpAudio,false);
+        }else{
+            // cc.audioEngine.playEffect(/)
         }
+    }
+    spawnDust(animName:string){
+        let dustType = "Dust";
+        let dust = Global.D.sceneManager.spawn(this.dustPrefab,dustType,this.node);
+        dust.node.position = cc.v2(0,0);
+        dust.playAnim(animName);
     }
 }
 
