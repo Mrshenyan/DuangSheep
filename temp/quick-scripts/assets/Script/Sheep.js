@@ -22,9 +22,12 @@ var Sheep = /** @class */ (function (_super) {
         _this.groundY = 0;
         _this.gravity = 0;
         _this.initJumpSpeed = 0;
+        _this._state = null;
         _this.jumpAudio = null;
+        _this.dustPrefab = null;
         _this.addEnergyOnGround = 0.5;
         _this.jumpEnergyCost = 0.3;
+        _this.energyBar = null;
         _this.invincible = false;
         _this.invincibleTime = 3;
         _this.invincibleSpeed = -600;
@@ -66,8 +69,20 @@ var Sheep = /** @class */ (function (_super) {
     Sheep.prototype.jump = function () {
         if (this.energy >= this.jumpEnergyCost) {
             this.energy -= this.jumpEnergyCost;
-            this.state = State.Jump;
+            this.state = SheepState.Jump;
+            this.currentSpeed = this.initJumpSpeed;
+            this.spawnDust("DustUp");
+            cc.audioEngine.playEffect(this.jumpAudio, false);
         }
+        else {
+            // cc.audioEngine.playEffect(/)
+        }
+    };
+    Sheep.prototype.spawnDust = function (animName) {
+        var dustType = "Dust";
+        var dust = Global_1.default.D.sceneManager.spawn(this.dustPrefab, dustType, this.node);
+        dust.node.position = cc.v2(0, 0);
+        dust.playAnim(animName);
     };
     __decorate([
         property
@@ -95,11 +110,13 @@ var Sheep = /** @class */ (function (_super) {
     ], Sheep.prototype, "dustPrefab", void 0);
     __decorate([
         property({
+            type: cc.Float,
             tooltip: '每秒在地上恢复的能量值'
         })
     ], Sheep.prototype, "addEnergyOnGround", void 0);
     __decorate([
         property({
+            type: cc.Float,
             tooltip: '每次跳跃消耗的能量值'
         })
     ], Sheep.prototype, "jumpEnergyCost", void 0);

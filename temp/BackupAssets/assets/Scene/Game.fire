@@ -17,7 +17,7 @@
         "__id__": 2
       }
     ],
-    "_active": true,
+    "_active": false,
     "_level": 0,
     "_components": [],
     "_prefab": null,
@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.1872222193965206,
-      "y": 0.1872222193965206,
+      "x": 0.19581019083658854,
+      "y": 0.19581019083658854,
       "z": 1
     },
     "_quat": {
@@ -81,7 +81,7 @@
       }
     ],
     "_active": true,
-    "_level": 0,
+    "_level": 1,
     "_components": [
       {
         "__id__": 43
@@ -916,7 +916,7 @@
     "node": {
       "__id__": 13
     },
-    "_enabled": true,
+    "_enabled": false,
     "speed": -300,
     "resetX": -1100,
     "_id": "70fqa4OaFBsrXuxuZ6zWWl"
@@ -1293,7 +1293,7 @@
     "node": {
       "__id__": 22
     },
-    "_enabled": true,
+    "_enabled": false,
     "speed": -300,
     "resetX": -1100,
     "_id": "c3cmJeSBlPRb2CBKTEOKgY"
@@ -1715,7 +1715,7 @@
     "node": {
       "__id__": 31
     },
-    "_enabled": true,
+    "_enabled": false,
     "maxY": 620,
     "groundY": -352,
     "gravity": 980,
@@ -1729,6 +1729,9 @@
     },
     "addEnergyOnGround": 0.5,
     "jumpEnergyCost": 0.3,
+    "energyBar": {
+      "__id__": 36
+    },
     "invincible": false,
     "invincibleTime": 3,
     "invincibleSpeed": -600,
@@ -1742,8 +1745,10 @@
     "node": {
       "__id__": 31
     },
-    "_enabled": true,
-    "_defaultClip": null,
+    "_enabled": false,
+    "_defaultClip": {
+      "__uuid__": "8b7e3072-5a00-4aa4-b230-d2c317c98919"
+    },
     "_clips": [
       {
         "__uuid__": "8b7e3072-5a00-4aa4-b230-d2c317c98919"

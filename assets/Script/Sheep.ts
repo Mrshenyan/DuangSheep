@@ -26,7 +26,7 @@ export default class Sheep extends cc.Component {
         type:cc.Enum(SheepState),
         visible:true,
     })
-    private _state;
+    private _state=null;
     get state(){
         return this._state;
     }
@@ -36,17 +36,19 @@ export default class Sheep extends cc.Component {
     @property(cc.AnimationClip)
     jumpAudio=null;
     @property(cc.Prefab)
-    dustPrefab: cc.Prefab;
+    dustPrefab: cc.Prefab=null;
     @property({
+        type:cc.Float,
         tooltip: '每秒在地上恢复的能量值'
     })
     addEnergyOnGround=0.5
     @property({
+        type:cc.Float,
         tooltip: '每次跳跃消耗的能量值'
     },)
     jumpEnergyCost=0.3
     @property(cc.ProgressBar)
-    energyBar:cc.ProgressBar;
+    energyBar:cc.ProgressBar=null;
     @property(cc.Boolean)
     invincible=false;
     @property(cc.Integer)
